@@ -41,7 +41,7 @@ class loan {
     System.out.println(loanM);
 
   }
-  
+
 
 
 
@@ -92,7 +92,7 @@ public class YouthLoan {
 
                         System.out.println("總貸款期數480期");
 
-                          System.out.println("\n請選擇方案: 1.一段式机动利率  2.二段式机动利率： 3.混合式固定利率： ");
+                          System.out.println("\n請選擇方案: 1.一段式機動利率  2.二段式機動利率： 3.混合式固定利率： ");
                           int type4=scanner.nextInt();
                           switch (type4)
                             {
@@ -100,7 +100,7 @@ public class YouthLoan {
 
                               case 1 :
 
-
+                                System.out.println("選擇方案 1: 一段式機動利率 ");
                                 System.out.println("總貸款期數480期");
                                 int loanM=a1.loanFun(type);
 
@@ -116,10 +116,6 @@ public class YouthLoan {
                                 double loanP1M=(double)loanP1/1000;
 
 
-
-
-
-
                                 System.out.println("總金額為 : "+Loantotal+"萬元");
                                 System.out.println("每期繳交金額 : "+loanP1M+"萬元");
 
@@ -127,7 +123,24 @@ public class YouthLoan {
                                 break;
                               case 2 :
 
+                                System.out.println("選擇方案 2: 二段式機動利率 ");
+                                System.out.println("總貸款期數480期");
+                                int loanM2=a1.loanFun(type);
 
+
+                                double loan2 = (loanM2 * (0.02305 / 12)) / (1 - Math.pow(1 + (0.02305 / 12), -480));
+
+                                double loan22=Math.round(loan2*1000);
+                                int loanP2=(int)loan22;
+
+                                int Loantotal2=(loanP2*480)/1000;
+
+
+                                double loanP2M=(double)loanP2/1000;
+
+
+                                System.out.println("總金額為 : "+Loantotal2+"萬元");
+                                System.out.println("每期繳交金額 : "+loanP2M+"萬元");
 
 
 
