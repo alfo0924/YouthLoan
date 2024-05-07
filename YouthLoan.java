@@ -31,28 +31,6 @@ class loan {
 
   }
 
-  class  loan1
-  {
-
-
-
-
-  }
-  class loan2
-  {
-
-
-
-
-  }
-  class loan3
-  {
-
-
-
-
-
-  }
 
 
 
@@ -63,14 +41,7 @@ class loan {
     System.out.println(loanM);
 
   }
-  void printOut()
-  {
-
-
-    System.out.println();
-
-  }
-
+  
 
 
 
