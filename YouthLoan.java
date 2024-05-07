@@ -124,23 +124,48 @@ public class YouthLoan {
                               case 2 :
 
                                 System.out.println("選擇方案 2: 二段式機動利率 ");
+
+                                //前两年利率为基准利率 + 0.345% = 1.72% + 0.345% = 2.065%。
+                                //之后利率为基准利率 + 0.645% = 1.72% + 0.645% = 2.365%。
+                                //
+                                //首先计算前两年的固定本金支付额，然后计算剩余期数的等额本息分期摊还。
+
                                 System.out.println("總貸款期數480期");
                                 int loanM2=a1.loanFun(type);
 
 
-                                double loan2 = (loanM2 * (0.02305 / 12)) / (1 - Math.pow(1 + (0.02305 / 12), -480));
-
+                                //前兩年利率計算
+                                double loan2 = (loanM2 * (0.02065 / 12)) / (1 - Math.pow(1 + (0.02065 / 12), -480));
                                 double loan22=Math.round(loan2*1000);
                                 int loanP2=(int)loan22;
-
-                                int Loantotal2=(loanP2*480)/1000;
-
-
                                 double loanP2M=(double)loanP2/1000;
 
+//                                int Loantotal2=(loanP2*480)/1000;
 
-                                System.out.println("總金額為 : "+Loantotal2+"萬元");
-                                System.out.println("每期繳交金額 : "+loanP2M+"萬元");
+
+                                //後面期數利率計算
+                                double loan2b = (loanM2 * (0.02365 / 12)) / (1 - Math.pow(1 + (0.02365 / 12), -480));
+                                double loan22b=Math.round(loan2b*1000);
+                                int loanP2b=(int)loan22b;
+                                double loanP2Mb=(double)loanP2b/1000;
+
+                                //計算總和
+                                double loant2f=loanP2M*2;
+                                double loant2b=loanP2Mb*438;
+
+                                double loantt=loant2f+loant2b;
+
+
+
+
+
+
+                                System.out.println("二段式機動利率 前兩年每期應繳金額 :"+ loanP2M+"萬元");
+                                System.out.println("二段式機動利率 兩期後每期應繳金額 :"+ loanP2Mb+"萬元");
+                                System.out.println("二段式機動利率 總金額為 : "+loantt+"萬元");
+
+                                break;
+//                                System.out.println("每期繳交金額 : "+loanP2M+"萬元");
 
 
 
@@ -150,7 +175,7 @@ public class YouthLoan {
 
                             }
 
-//                        break;
+                        break;
                       }
                       else
                       {
